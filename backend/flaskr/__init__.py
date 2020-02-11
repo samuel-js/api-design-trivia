@@ -49,7 +49,7 @@ def create_app(test_config=None):
     get_categories = Category.query.order_by(Category.id).all()
     current_categories = paginate_items(request, get_categories)
 
-    if len(current_categories) == 0:
+    if current_categories is None :
       abort(400)
 
     return jsonify({
@@ -57,7 +57,23 @@ def create_app(test_config=None):
       'categories': current_categories,
       'total_categories': len(Category.query.all())
     })
-  
+    
+  # Create an endpoint to handle GET requests 
+
+  # @app.route('/categories, <int:category_id>', methods=['GET'])
+  # def retrieve_category(category_id):
+  #   get_category = Category.query.filter_by(Category.id==category_id).one_or_none()
+  #   current_category = paginate_items(request, get_category)
+
+  #   if current_category is None :
+  #     abort(400)
+
+  #   return jsonify({
+  #     'success': True,
+  #     'category': current_category,
+  #     'total_categories': len(Category.query.all())
+  #   })
+
   # @TODO: 
   # Create an endpoint to handle GET requests for questions, 
   # including pagination (every 10 questions). 
@@ -69,7 +85,7 @@ def create_app(test_config=None):
     get_questions = Question.query.order_by(Question.id).all()
     current_questions = paginate_items(request, get_questions)
 
-    if len(current_questions) == 0:
+    if current_questions is None:
       abort(400)
 
     return jsonify({
@@ -179,8 +195,8 @@ def create_app(test_config=None):
   @app.route('/categories/<int:category_id>/questions', methods=['GET'])
   def get_question_by_cat_id(category_id):
     questions_by_category = Question.query.filter(Question.category == category_id).all()
-
-    if len(questions_by_category) == 0:
+    
+    if questions_by_category is None:
       error = 404
 
     try:    
