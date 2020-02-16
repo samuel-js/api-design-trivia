@@ -1,6 +1,6 @@
 .App-header {
-  background-color: #222;
-  color: white;
+  background-color: rgb(42, 44, 43);
+  color: rgb(189, 195, 199);
   display: flex;
   justify-content: space-between;
   height: 75px;
@@ -10,7 +10,7 @@
 }
 
 .App-header > h1 {
-  color: dodgerblue;
+  color: rgb(217, 203, 158);
 }
 
 .App-intro {
