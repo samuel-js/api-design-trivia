@@ -7,6 +7,7 @@ from models import setup_db, Question, Category
 
 ITEMS_PER_PAGE = 10
 
+
 def paginate_items(request, selection):
   page = request.args.get('page', 1, type=int)
   start = (page - 1) * 10
@@ -116,7 +117,6 @@ def create_app(test_config=None):
 
     except:
       abort(422)
-
 
   # TEST: When you click the trash icon next to a question, the question will be removed.
   # This removal will persist in the database and when you refresh the page. 
@@ -283,7 +283,7 @@ def create_app(test_config=None):
       "message": "unprocessable"
       }), 422
 
-    
+  
   return app
 
     
