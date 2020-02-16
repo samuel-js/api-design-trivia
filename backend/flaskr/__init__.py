@@ -10,7 +10,7 @@ ITEMS_PER_PAGE = 10
 
 def paginate_items(request, selection):
   page = request.args.get('page', 1, type=int)
-  start = (page - 1) * 10
+  start = (page - 1) * ITEMS_PER_PAGE
   end = start + 10
   formatted_selection = [item.format() for item in selection]
 
@@ -37,9 +37,7 @@ def create_app(test_config=None):
   @cross_origin()
   def helloWorld():
       
-    return '''<h1>Hello CORS!</h1> Read about my spec at the
-    <a href="http://www.w3.org/TR/cors/">W3</a> Or, checkout my documentation
-    on <a href="https://github.com/corydolphin/flask-cors">Github</a>'''
+    return "Hello world!"
   
   # @TODO: 
   # Create an endpoint to handle GET requests 
@@ -68,7 +66,7 @@ def create_app(test_config=None):
   # Create an endpoint to handle GET requests for questions, 
   # including pagination (every 10 questions). 
   # This endpoint should return a list of questions, 
-  # number of total questions, current category, categories. @TODO!! Not complete
+  # number of total questions, current category, categories.
  
   @app.route('/questions')
   def retrieve_questions():
@@ -283,7 +281,7 @@ def create_app(test_config=None):
       "message": "unprocessable"
       }), 422
 
-  
+
   return app
 
     
