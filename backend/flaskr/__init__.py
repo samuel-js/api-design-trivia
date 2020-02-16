@@ -40,7 +40,6 @@ def create_app(test_config=None):
     <a href="http://www.w3.org/TR/cors/">W3</a> Or, checkout my documentation
     on <a href="https://github.com/corydolphin/flask-cors">Github</a>'''
   
-
   # @TODO: 
   # Create an endpoint to handle GET requests 
   # for all available categories.
