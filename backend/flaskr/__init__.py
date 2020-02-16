@@ -3,21 +3,20 @@ from flask import Flask, request, abort, jsonify, session, json
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS, cross_origin
 import random
-
 from models import setup_db, Question, Category
 
 ITEMS_PER_PAGE = 10
 
 def paginate_items(request, selection):
-    page = request.args.get('page', 1, type=int)
-    start = (page - 1) * 10
-    end = start + 10
-    formatted_selection = [item.format() for item in selection]
+  page = request.args.get('page', 1, type=int)
+  start = (page - 1) * 10
+  end = start + 10
+  formatted_selection = [item.format() for item in selection]
 
-    if(len(formatted_selection) < start):
-        abort(404)
+  if(len(formatted_selection) < start):
+      abort(404)
 
-    return formatted_selection[start:end]
+  return formatted_selection[start:end]
 
 
 def create_app(test_config=None):
@@ -37,28 +36,15 @@ def create_app(test_config=None):
   @cross_origin()
   def helloWorld():
       
-      return '''<h1>Hello CORS!</h1> Read about my spec at the
-  <a href="http://www.w3.org/TR/cors/">W3</a> Or, checkout my documentation
-  on <a href="https://github.com/corydolphin/flask-cors">Github</a>'''
+    return '''<h1>Hello CORS!</h1> Read about my spec at the
+    <a href="http://www.w3.org/TR/cors/">W3</a> Or, checkout my documentation
+    on <a href="https://github.com/corydolphin/flask-cors">Github</a>'''
   
 
   # @TODO: 
   # Create an endpoint to handle GET requests 
   # for all available categories.
 
-  # @app.route('/categories')
-  # def retrieve_categories():
-  #   get_categories = Category.query.order_by(Category.id).all()
-  #   current_categories = paginate_items(request, get_categories)
-
-  #   if current_categories is None :
-  #     abort(400)
-
-  #   return jsonify({
-  #     'success': True,
-  #     'categories': current_categories,
-  #     'total_categories': len(Category.query.all())
-  #   })
   @app.route('/categories')
   def retrieve_categories():
     get_categories = Category.query.order_by(Category.id).all()
@@ -83,21 +69,7 @@ def create_app(test_config=None):
   # including pagination (every 10 questions). 
   # This endpoint should return a list of questions, 
   # number of total questions, current category, categories. @TODO!! Not complete
-  
-  # @app.route('/questions')
-  # def retrieve_questions():
-  #   get_questions = Question.query.order_by(Question.id).all()
-  #   current_questions = paginate_questions(request, get_questions)
-
-  #   if current_questions is None:
-  #     abort(400)
-
-  #   return jsonify({
-  #     'success': True,
-  #     'questions': current_questions,
-  #     'total_questions': len(Question.query.all())
-  #   })
-  
+ 
   @app.route('/questions')
   def retrieve_questions():
     questions = Question.query.order_by(Question.id).all()
@@ -119,28 +91,6 @@ def create_app(test_config=None):
 
     except:
       abort(422)
-
-  # An alternative way without pagination:
-
-  # @app.route('/questions')
-  # def questions():
-  #   data = []
-  #   question_list = Question.query.all()
-
-  #   for q in question_list:
-  #     data.append({
-  #     "id": q.id,
-  #     "category": q.category,
-  #     "difficulty": q.difficulty,     
-  #     "question": q.question,
-  #     "answer": q.answer
-  #   })
-
-  #   return jsonify({
-  #     'success': True,
-  #     'questions': data,
-  #     'total_questions': len(Question.query.all()),
-  #   })
   
   # TEST: At this point, when you start the application
   # you should see questions and categories generated,
@@ -195,21 +145,19 @@ def create_app(test_config=None):
       question.insert()
 
       return jsonify({
-          'success': True,
-          'question_id': question.id,
-          'questions': paginate_items(request, questions),
-          'total_questions': len(questions)
+        'success': True,
+        'question_id': question.id,
+        'questions': paginate_items(request, questions),
+        'total_questions': len(questions)
       })
 
     except:
       abort(422)
 
-
   # TEST: When you submit a question on the "Add" tab, 
   # the form will clear and the question will appear at the end of the last page
   # of the questions list in the "List" tab.  
   
-
   # @TODO: 
   # Create a POST endpoint to get questions based on a search term. 
   # It should return any questions for whom the search term 
@@ -295,9 +243,6 @@ def create_app(test_config=None):
       'success':True,
       'question':current_question,
     })
-
-    
-  
 
   # TEST: In the "Play" tab, after a user selects "All" or a category,
   # one question at a time is displayed, the user is allowed to answer
