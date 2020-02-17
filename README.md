@@ -268,7 +268,7 @@ Creates a question.
 Searces questions by search-term. Case insensitive.
 Returns a list of questions, the number of questions returned, and current category.
 
-*`curl http://127.0.0.1:5000/questions/search -X POST -H "Content-Type: application/json" -d '{"searchTerm":"anne"}'`*
+**`curl http://127.0.0.1:5000/questions/search -X POST -H "Content-Type: application/json" -d '{"searchTerm":"anne"}'`**
 
 	{
         "current_category": "None", 
