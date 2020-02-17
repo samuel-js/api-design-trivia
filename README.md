@@ -4,7 +4,7 @@ The Trivia API is a full-stack application that allows users to play a trivia ga
 
 ## Getting Started
 
-### Project structure
+### Understanding the project's structure
 
 ```
 ├── README.md
