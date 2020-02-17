@@ -1,6 +1,6 @@
 # The Trivia API Documentation
 
-The Trivia API is a full-stack application that allows users to play a trivia game wthere they can search for questions to answer, post new questions as well as delete the ones they don't like. The aplications backend is built in Python, JS, React and a Posgres databases whe the data is stored, accesed and edited by the application.
+The Trivia API is a full-stack application that allows users to play a trivia game wthere they can search for questions to answer, post new questions as well as delete questions. The aplications backend is built in Python, JS, React and a Postgres database where the data is stored, retrieved, edited and deleted by the application.
 
 ## Getting Started
 
