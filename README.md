@@ -120,54 +120,51 @@ python test_flaskr.py
 The following examples list the available endpoints and the expected respomnses from the request commands.
 
 ### GET /categories
-
 Returns a list of available categories
+`curl http://127.0.0.1:5000/categories -X GET`
 
-curl http://127.0.0.1:5000/categories -X GET
-
-{
-  "categories": {
-    "1": "Science",
-    "2": "Art",
-    "3": "Geography",
-    "4": "History",
-    "5": "Entertainment",
-    "6": "Sports"
-  },
-  "success": true,
-  "total_categories": 6
-}
+    {
+      "categories": {
+        "1": "Science",
+        "2": "Art",
+        "3": "Geography",
+        "4": "History",
+        "5": "Entertainment",
+        "6": "Sports"
+      },
+      "success": true,
+      "total_categories": 6
+    }
 
 
 ### GET /questions
 Returns a list of available categories and questions, number of questions, and current category.
+`curl http://127.0.0.1:5000/questions -X GET`
 
-curl http://127.0.0.1:5000/questions -X GET
-
-{
-  "categories": {
-    "1": "Science",
-    "2": "Art",
-    "3": "Geography",
-    "4": "History",
-    "5": "Entertainment",
-    "6": "Sports"
-  },
-  "current_category": null,
-  "questions": [
     {
-      "answer": "Apollo 13",
-      "category": 5,
-      "difficulty": 4,
-      "id": 2,
-      "question": "What movie earned Tom Hanks his third straight Oscar nomination, in 1996?"
+        "categories": {
+        "1": "Science",
+        "2": "Art",
+        "3": "Geography",
+        "4": "History",
+        "5": "Entertainment",
+        "6": "Sports"
+    },
+        "current_category": null,
+        "questions": [
+    {
+        "answer": "Apollo 13",
+        "category": 5,
+        "difficulty": 4,
+        "id": 2,
+         "question": "What movie earned Tom Hanks his third straight Oscar nomination, in 1996?"
     },
     {
-      "answer": "Tom Cruise",
-      "category": 5,
-      "difficulty": 4,
-      "id": 4,
-      "question": "What actor did author Anne Rice first denounce, then praise in the role of her beloved Lestat?"
+        "answer": "Tom Cruise",
+        "category": 5,
+         "difficulty": 4,
+         "id": 4,
+         "question": "What actor did author Anne Rice first denounce, then praise in the role of her beloved Lestat?"
     },
     {
       "answer": "Maya Angelou",
@@ -225,23 +222,20 @@ curl http://127.0.0.1:5000/questions -X GET
       "id": 14,
       "question": "In which royal palace would you find the Hall of Mirrors?"
     }
-  ],
-  "total_questions": 22
-}
+    ],
+         "total_questions": 22
+    }
 	
 	
 ### DELETE /questions/<id>
 Deletes a question with provided ID.
-
-curl http://127.0.0.1:5000/questions/50 -X DELETE
+`curl http://127.0.0.1:5000/questions/50 -X DELETE`
 
 	{
         "deleted_id": 50, 
         "success": true
     }
-	
-	or
-	
+	    or
 	{
         "error": 404, 
         "message": "resource not found", 
@@ -251,8 +245,7 @@ curl http://127.0.0.1:5000/questions/50 -X DELETE
 
 ### POST /questions/add
 Creates a question. 
-
-curl http://127.0.0.1:5000/questions/add -X POST -H "Content-Type: application/json" -d '{"question":"TestQuestion","answer":"TestAnswer","category":"5","difficulty":"5"}'
+`curl http://127.0.0.1:5000/questions/add -X POST -H "Content-Type: application/json" -d '{"question":"TestQuestion","answer":"TestAnswer","category":"5","difficulty":"5"}'`
 	
 	{
         "question_id": 51,
@@ -260,22 +253,17 @@ curl http://127.0.0.1:5000/questions/add -X POST -H "Content-Type: application/j
         "success": true, 
         "total_questions": 19
 	}
-	
-	or
-	
+	    or
 	{
         "error": 400, 
         "message": "bad request", 
         "success": false
     }
 
-
 ### POST /questions
 Searces questions by search-term. Case insensitive.
-
 Returns a list of questions, the number of questions returned, and current category.
-
-curl http://127.0.0.1:5000/questions/search -X POST -H "Content-Type: application/json" -d '{"searchTerm":"anne"}'
+`curl http://127.0.0.1:5000/questions/search -X POST -H "Content-Type: application/json" -d '{"searchTerm":"anne"}'`
 
 	{
         "current_category": "None", 
@@ -285,65 +273,62 @@ curl http://127.0.0.1:5000/questions/search -X POST -H "Content-Type: applicatio
         "category": 5, 
         "difficulty": 4, 
         "id": 4, 
-        "question": "What actor did author Anne Rice first denounce, then praise in the role of her beloved Lestat?"
+        "question": "What actor did author Anne Rice first denounce, 
+                     then praise in the role of her beloved Lestat?"
     }
-  ], 
-  "success": true, 
-  "total_questions": 1
+    ],
+        "success": true, 
+        "total_questions": 1
+     }
 
 
 ### GET /categories/<int:id>/questions
 Gets all questions that belong to a specific category.
-
 Returns a list of questions, total number of questions returned, and current category.
-
-curl http://127.0.0.1:5000/categories/1/questions -X GET
+`curl http://127.0.0.1:5000/categories/1/questions -X GET`
 
 	{
-  "current_category": "Science", 
-  "questions": [
+        "current_category": "Science", 
+        "questions": [
     {
-      "answer": "The Liver", 
-      "category": 1, 
-      "difficulty": 4, 
-      "id": 20, 
-      "question": "What is the heaviest organ in the human body?"
+        "answer": "The Liver", 
+        "category": 1, 
+        "difficulty": 4, 
+        "id": 20, 
+        "question": "What is the heaviest organ in the human body?"
     }, 
     {
-      "answer": "Alexander Fleming", 
-      "category": 1, 
-      "difficulty": 3, 
-      "id": 21, 
-      "question": "Who discovered penicillin?"
+        "answer": "Alexander Fleming", 
+        "category": 1, 
+        "difficulty": 3, 
+         "id": 21, 
+         "question": "Who discovered penicillin?"
     }, 
     {
-      "answer": "Blood", 
-      "category": 1, 
-      "difficulty": 4, 
-      "id": 22, 
-      "question": "Hematology is a branch of medicine involving the study of what?"
+         "answer": "Blood", 
+         "category": 1, 
+         "difficulty": 4, 
+         "id": 22, 
+         "question": "Hematology is a branch of medicine involving the study of what?"
     }
-  ], 
-  "success": true, 
-  "total_questions": 3
+    ], 
+        "success": true, 
+        "total_questions": 3
+    }
   
-	
 ## Error Handling
-All errors are wrapped and sent as JSON responses.
+The application will return the following errors:
+- 400 Bad Request
+- 404 Not found
+- 405 Method not allowed
+- 422 Unprocessable
 
-You can see an example of the structure of these response below:
+All errors are returned as JSON responses and formatted as in the following example:
 
 	{
-		'success':False
-		'error':404,
-		'message':'Not Found'
-	}
+        "error": 405, 
+        "message": "method not allowed", 
+        "success": false
+    }
 
-In total this API will return two error types.
 
-404: Resource Not Found
-
-422: Not Processable
-
-## Authors & Acknowledgements
-Udacity Team & Lucas Auman
