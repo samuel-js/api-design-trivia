@@ -141,7 +141,8 @@ Returns a list of available categories
 ### GET /questions
 Returns a list of available categories and questions, number of questions, and current category.
 
-`curl http://127.0.0.1:5000/questions -X GET`
+<span style="color:red">`curl http://127.0.0.1:5000/questions -X GET`</span>
+
 
     {
         "categories": {
