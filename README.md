@@ -122,7 +122,7 @@ The following examples list the available endpoints and the expected respomnses 
 ### GET /categories
 Returns a list of available categories
 
-`curl http://127.0.0.1:5000/categories -X GET`
+**`curl http://127.0.0.1:5000/categories -X GET`**
 
     {
       "categories": {
@@ -141,8 +141,7 @@ Returns a list of available categories
 ### GET /questions
 Returns a list of available categories and questions, number of questions, and current category.
 
-`curl http://127.0.0.1:5000/questions -X GET`
-
+**`curl http://127.0.0.1:5000/questions -X GET`**
 
     {
         "categories": {
@@ -230,10 +229,10 @@ Returns a list of available categories and questions, number of questions, and c
     }
 	
 	
-### DELETE /questions/<id>
+### DELETE /questions/<int:id>
 Deletes a question with provided ID.
 
-`curl http://127.0.0.1:5000/questions/50 -X DELETE`
+**`curl http://127.0.0.1:5000/questions/50 -X DELETE`**
 
 	{
         "deleted_id": 50, 
@@ -250,7 +249,7 @@ Deletes a question with provided ID.
 ### POST /questions/add
 Creates a question. 
 
-`curl http://127.0.0.1:5000/questions/add -X POST -H "Content-Type: application/json" -d '{"question":"TestQuestion","answer":"TestAnswer","category":"5","difficulty":"5"}'`
+**`curl http://127.0.0.1:5000/questions/add -X POST -H "Content-Type: application/json" -d '{"question":"TestQuestion","answer":"TestAnswer","category":"5","difficulty":"5"}'`**
 	
 	{
         "question_id": 51,
@@ -269,7 +268,7 @@ Creates a question.
 Searces questions by search-term. Case insensitive.
 Returns a list of questions, the number of questions returned, and current category.
 
-`curl http://127.0.0.1:5000/questions/search -X POST -H "Content-Type: application/json" -d '{"searchTerm":"anne"}'`
+*`curl http://127.0.0.1:5000/questions/search -X POST -H "Content-Type: application/json" -d '{"searchTerm":"anne"}'`*
 
 	{
         "current_category": "None", 
@@ -292,7 +291,7 @@ Returns a list of questions, the number of questions returned, and current categ
 Gets all questions that belong to a specific category.
 Returns a list of questions, total number of questions returned, and current category.
 
-`curl http://127.0.0.1:5000/categories/1/questions -X GET`
+**`curl http://127.0.0.1:5000/categories/1/questions -X GET`**
 
 	{
         "current_category": "Science", 
