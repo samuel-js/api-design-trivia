@@ -151,7 +151,7 @@ Returns a list of available categories and questions, number of questions, and c
         "4": "History",
         "5": "Entertainment",
         "6": "Sports"
-    },
+        },
         "current_category": null,
         "questions": [
     {
@@ -223,8 +223,8 @@ Returns a list of available categories and questions, number of questions, and c
       "difficulty": 3,
       "id": 14,
       "question": "In which royal palace would you find the Hall of Mirrors?"
-    }
-    ],
+     }
+     ],
          "total_questions": 22
     }
 	
@@ -284,7 +284,7 @@ Returns a list of questions, the number of questions returned, and current categ
     ],
         "success": true, 
         "total_questions": 1
-     }
+    }
 
 
 ### GET /categories/<int:id>/questions
