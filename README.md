@@ -121,6 +121,7 @@ The following examples list the available endpoints and the expected respomnses 
 
 ### GET /categories
 Returns a list of available categories
+
 `curl http://127.0.0.1:5000/categories -X GET`
 
     {
@@ -139,6 +140,7 @@ Returns a list of available categories
 
 ### GET /questions
 Returns a list of available categories and questions, number of questions, and current category.
+
 `curl http://127.0.0.1:5000/questions -X GET`
 
     {
@@ -229,6 +231,7 @@ Returns a list of available categories and questions, number of questions, and c
 	
 ### DELETE /questions/<id>
 Deletes a question with provided ID.
+
 `curl http://127.0.0.1:5000/questions/50 -X DELETE`
 
 	{
@@ -245,6 +248,7 @@ Deletes a question with provided ID.
 
 ### POST /questions/add
 Creates a question. 
+
 `curl http://127.0.0.1:5000/questions/add -X POST -H "Content-Type: application/json" -d '{"question":"TestQuestion","answer":"TestAnswer","category":"5","difficulty":"5"}'`
 	
 	{
@@ -263,6 +267,7 @@ Creates a question.
 ### POST /questions
 Searces questions by search-term. Case insensitive.
 Returns a list of questions, the number of questions returned, and current category.
+
 `curl http://127.0.0.1:5000/questions/search -X POST -H "Content-Type: application/json" -d '{"searchTerm":"anne"}'`
 
 	{
@@ -285,6 +290,7 @@ Returns a list of questions, the number of questions returned, and current categ
 ### GET /categories/<int:id>/questions
 Gets all questions that belong to a specific category.
 Returns a list of questions, total number of questions returned, and current category.
+
 `curl http://127.0.0.1:5000/categories/1/questions -X GET`
 
 	{
