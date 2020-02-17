@@ -253,7 +253,6 @@ Creates a question.
 	
 	{
         "question_id": 51,
-        < a dictionary of current cuestions here >
         "success": true, 
         "total_questions": 19
 	}
